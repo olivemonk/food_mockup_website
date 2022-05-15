@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</head>
+
+<style>
+    .bg-light {
+        background-color: #b10200 !important;
+    }
+
+    .btn-outline-success {
+        color: #fbca03;
+        border-color: #fbca03;
+    }
+
+    .btn-outline-success:hover {
+        color: #fff;
+        background-color: #fbca03;
+        border-color: #9b7c00;
+    }
+
+    a {
+        color: #fbca03 !important;
+        text-decoration: none;
+    }
+
+    .header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 99;
+    }
+
+    footer a i {
+        color: rgb(126, 117, 117);
+    }
+
+    body {
+        background: #edf1f5;
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0 solid transparent;
+        border-radius: 0;
+        margin-top: 20px;
+    }
+
+    .text-muted {
+        color: #8898aa !important;
+    }
+
+    .card .card-subtitle {
+        font-weight: 300;
+        margin-bottom: 10px;
+        color: #8898aa;
+    }
+
+    ul.list-style-none li {
+        list-style: none;
+    }
+
+    .progress-bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        background-color: #b10200;
+        transition: width .6s ease;
+    }
+
+    .progress {
+        -webkit-box-shadow: inset 0 1px 2px rgba(193, 51, 51, 0.05);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05);
+        -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05);
+        -o-shadow: inset 0 1px 2px rgba(0, 0, 0, .05);
+    }
+
+    .progress {
+        display: flex;
+        height: 4px;
+        overflow: hidden;
+        font-size: .65625rem;
+        background-color: rgba(120, 130, 140, .13);
+        border-radius: 0;
+        box-shadow: inset 0 0.1rem 0.1rem rgba(0, 0, 0, .1);
+    }
+
+    .display-5 {
+        font-size: 50px !important;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+
+    .btn-info {
+        color: #000;
+        background-color: #b10200;
+        border-color: #b10200;
+    }
+
+    .btn-info:hover {
+        background-color: #8a0301;
+        border-color: #8a0301;
+    }
+
+    .section {
+        padding: 20px;
+        position: relative;
+    }
+
+    .gray-bg {
+        background-color: #ebf4fa;
+    }
+
+
+    .blog-grid {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .blog-grid .blog-img {
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .blog-grid .blog-img .date {
+        position: absolute;
+        background: #3a3973;
+        color: #ffffff;
+        padding: 8px 15px;
+        left: 0;
+        top: 10px;
+        font-size: 14px;
+    }
+
+    .blog-grid .blog-info {
+        box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+        border-radius: 5px;
+        background: #ffffff;
+        padding: 20px;
+        margin: -30px 20px 0;
+        position: relative;
+    }
+
+    .blog-grid .blog-info h5 {
+        font-size: 22px;
+        font-weight: 500;
+        margin: 0 0 10px;
+    }
+
+    .blog-grid .blog-info h5 a {
+        color: #3a3973;
+    }
+
+    .blog-grid .blog-info p {
+        margin: 0;
+    }
+
+    .blog-grid .blog-info .btn-bar {
+        margin-top: 20px;
+    }
+
+    .px-btn-arrow {
+        padding: 0 50px 0 0;
+        line-height: 20px;
+        position: relative;
+        display: inline-block;
+        color: #fe4f6c;
+        -moz-transition: ease all 0.3s;
+        -o-transition: ease all 0.3s;
+        -webkit-transition: ease all 0.3s;
+        transition: ease all 0.3s;
+    }
+
+
+    .px-btn-arrow .arrow {
+        width: 13px;
+        height: 2px;
+        background: currentColor;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        right: 25px;
+        -moz-transition: ease right 0.3s;
+        -o-transition: ease right 0.3s;
+        -webkit-transition: ease right 0.3s;
+        transition: ease right 0.3s;
+    }
+
+    .px-btn-arrow .arrow:after {
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid currentColor;
+        border-top: 2px solid currentColor;
+        content: "";
+        position: absolute;
+        top: -3px;
+        right: 0;
+        display: inline-block;
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+</style>
+
+<body>
+
+    <!-- navbar -->
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img class="img-fluid w-25" src="./images/bslogo.svg"> </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active h5" aria-current="page" href="#">HOME</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link h5" href="#">EXPLORE</a>
+                        </li>
+                        <li class="nav-item dropdown h5 ">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                DEALS
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" style="padding-left: 5%;">
+                        <input class="form-control me-2" type="search" placeholder="Enter Location" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="margin-left:10px">
+
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                                data-bs-target="#modalRegisterForm">Sign Up</button>
+                            <!-- <div class="text-center">
+                                <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Launch
+                                  Modal Register Form</a>
+                              </div> -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+    <!-- carosal -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./images/mh11.jpg" alt="Los Angeles" class="d-block" style="width:100%">
+                <div class="carousel-caption">
+                    <h3>Let's talk Cheese and Butter</h3>
+                    <p></p>
+                </div>
+            </div>
+            <div class="
+          -
+          carousel-item">
+                <img src="./images/mh2.jpg" alt="Chicago" class="d-block" style="width:100%;height:50%">
+                <div class="carousel-caption">
+                    <h3>Place an order on our app</h3>
+                    <h4>Enjoy the food on your lap!</h4>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./images/mh3.jpg" alt="New York" class="d-block" style="width:100%">
+                <div class="carousel-caption">
+                    <h3>At your doorsteps in jiffy</h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+
+    <!-- 3-columns -->
+    <div class="container" style="margin-top: 20px;margin-bottom:10px">
+        <h1 style="color: #8a0301; text-align:center">Top Restaurant Chains</h1>
+        <div class="row row-cols-1 row-cols-lg-3 g-2 g-lg-2">
+            <div class="col">
+                <div class="p-3 border bg-light"><img src="./images/m2.png" alt="" width="100%"></div>
+            </div>
+            <div class="col">
+                <div class="p-3 border bg-light"><img src="./images/c1.jpg" alt="" width="100%"></div>
+            </div>
+            <div class="col">
+                <div class="p-3 border bg-light"><img src="./images/c3.jpg" alt="" width="100%"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- blogs -->
+    <div class="container">
+        <section class="section gray-bg" id="blog">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 text-center">
+                        <div class="section-title">
+                            <h1 style="color: #8a0301;" style="margin-top: 20px;">Food Blogs</h1>
+                            <h5 style="color:#b10200; " style="margin-bottom: 10px;">THE LATEST & GREATEST</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="blog-grid">
+                            <div class="blog-img">
+                                <div class="date">04 FEB</div>
+                                <a href="#">
+                                    <img src="./images/b2.jpg" title="" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-info">
+                                <h5><a href="#">VEGETABLE FRIED RICE</a></h5>
+                                <p>Fried rice is a take-out classic because it’s fast, easy, filling, delicious, and
+                                    inexpensive, which is everything I want from a meal. a mix of outdoors and home
+                                    food....</p>
+                                <div class="btn-bar">
+                                    <a href="#" class="px-btn-arrow">
+                                        <span>Read More</span>
+                                        <i class="arrow"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="blog-grid">
+                            <div class="blog-img">
+                                <div class="date">03 FEB</div>
+                                <a href="#">
+                                    <img src="./images/b1.jpg" title="" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-info">
+                                <h5><a href="#">CAJUN CHICKEN PASTA</a></h5>
+                                <p>This One Pot Creamy Cajun Chicken Pasta is totally rich, flavorful, and super spicy.
+                                    Like, “burn a hole through your stomach” spicy. Perfect for weekends!....</p>
+                                <div class="btn-bar">
+                                    <a href="#" class="px-btn-arrow">
+                                        <span>Read More</span>
+                                        <i class="arrow"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="blog-grid">
+                            <div class="blog-img">
+                                <div class="date">01 FEB</div>
+                                <a href="#">
+                                    <img src="./images/b3.jpg" title="" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-info">
+                                <h5><a href="#">CHICKEN TIKKA MASALA</a></h5>
+                                <p>The rich and creamy Chicken tikka rivals any Indian restaurant!, With It's aromatic
+                                    golden chicken pieces swimming in an incredible curry sauce....</p>
+                                <div class="btn-bar">
+                                    <a href="#" class="px-btn-arrow">
+                                        <span>Read More</span>
+                                        <i class="arrow"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+    <!-- 2-columns & 3-rows in a column -->
+    <div class="container">
+        <h1 style="color: #8a0301;text-align:center;margin-top: 20px;margin-bottom:10px">Cuisines</h1>
+        <div class="row row-cols-1 row-cols-lg-2 g-2 g-lg-2">
+            <div class="col">
+                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="./images/h2.jpg" alt="Los Angeles" class="d-block" style="width:100%">
+                            <div class="carousel-caption">
+                                <h3>Let's talk Cheese and Butter</h3>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="
+                      -
+                      carousel-item">
+                            <img src="./images/h1.jpg" alt="Chicago" class="d-block" style="width:100%">
+                            <div class="carousel-caption">
+                                <h3>Place an order on our app</h3>
+                                <h4>Enjoy the food on your lap!</h4>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/h3.jpg" alt="New York" class="d-block" style="width:100%">
+                            <div class="carousel-caption">
+                                <h3>At your doorsteps in jiffy</h3>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+            <!-- 3-rows in a column -->
+            <div class="container">
+                <div class="row row-cols-3 row-cols-lg-1 g-2 g-lg-2">
+                    <div class="col">
+                        <div class="p-3 border bg-light img-fluid"><img src="./images/A1.jpg" alt="" width="100%"
+                                height="175px">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border bg-light img-fluid"><img src="./images/A2.jpg" alt="" width="100%"
+                                height="175px">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border bg-light img-fluid"><img src="./images/A3.jpg" alt="" width="100%"
+                                height="177px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- tabbed panes -->
+    <div class="container" style="margin-top: 20px;">
+        <h1 style="text-align: center; color:#b10200;margin-bottom:10px">Our Specials</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true"
+                    style="color: #b10200;font-weight:700;font-size:large">Fast Food</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false"
+                    style="color: #b10200;font-weight:700;font-size:large">Desserts</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                    role="tab" aria-controls="contact" aria-selected="false"
+                    style="color: #b10200;font-weight:700;font-size:large">Home Special</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                    <div class="feature col">
+                        <object data="house-solid.svg" width="50" height="50"></object>
+                        <h2>Cheetos Sandwich</h2>
+                        <p>Cheetos Sandwich was a bright, orange burger that paired a fried chicken fillet with a layer
+                            of Cheetos. Mayo, pickles, and a hot sauce called Cheeto sauce...</p>
+                        <a href="#" class="icon-link">
+                            Read More >
+                        </a>
+                    </div>
+                    <div class="feature col">
+                        <object data="house-solid.svg" width="50" height="50"></object>
+                        <h2>Pacific Veggie Pizza</h2>
+                        <p>The toppings include tomato sauce, onions, mushrooms, olives, feta, spinach, provolone
+                            cheese, mozzarella, and a sprinkle of roasted red peppers...</p>
+                        <a href="#" class="icon-link">
+                            Read More >
+                        </a>
+                    </div>
+                    <div class="feature col">
+                        <object data="house-solid.svg" width="50" height="50"></object>
+                        <h2>French Fries</h2>
+                        <p>French fries are batonnet or allumette-cut deep-fried potatoes. prepared by cutting potatoes
+                            into even strips, drying them, and frying in a deep fryer...</p>
+                        <a href="#" class="icon-link">
+                            Read More >
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                    <div class="feature col">
+                        <object data="house-solid.svg" width="50" height="50"></object>
+                        <h2>Cakes</h2>
+                        <p>Cakes are sweet tender breads made with sugar and delicate flour. Common flavorings include
+                            dried, candied or fresh fruit, nuts, cocoa or extracts...</p>
+                        <a href="#" class="icon-link">
+                            Read More >
+                        </a>
+                    </div>
+                    <div class="feature col">
+                        <object data="house-solid.svg" width="50" height="50"></object>
+                        <h2>Puddings</h2>
+                        <p> Puddings are similar to custards. the primary difference is that puddings are thickened with
+                            starches.and custards are thickened with only eggs... </p>
+                        <a href="#" class="icon-link">
+                            Read More >
+                        </a>
+                    </div>
+                    <div class="feature col">
+                        <object data="house-solid.svg" width="50" height="50"></object>
+                        <h2>Custards</h2>
+                        <p>custards usually include a thickened dairy base. Custards are cooked and thickened with eggs.
+                            They are often used as ingredients in other desserts...</p>
+                        <a href="#" class="icon-link">
+                            Read More >
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                    <div class="feature col">
+                        <object data="house-solid.svg" width="50" height="50"></object>
+                        <h2>Paneer Tikka Masala</h2>
+                        <p>Paneer Tikka Masala recipe is brimming with bright flavors from the spiced tomato onion curry
+                            sauce and delightfully marinated grilled cottage cheese...</p>
+                        <a href="#" class="icon-link">
+                            REad More >
+                        </a>
+                    </div>
+                    <div class="feature col">
+                        <object data="house-solid.svg" width="50" height="50"></object>
+                        <h2>Khaman Dhokla</h2>
+                        <p> A popular Gujarati snack, dhokla is one of the most loved snack across the country. Dhokla
+                            is delicious and healthy!, using besan, chili tempering...</p>
+                        <a href="#" class="icon-link">
+                            Read More >
+                        </a>
+                    </div>
+                    <div class="feature col">
+                        <object data="house-solid.svg" width="50" height="50"></object>
+                        <h2>Dal Baati</h2>
+                        <p>A traditional rajasthani recipe made from dal, bati. it is served for lunch or dinner by
+                            mixing the dal with crushed baati and ghee topped on it...</p>
+                        <a href="#" class="icon-link">
+                            Read More >
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- review tab -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-4">
+                            <div class="card-body">
+                                <h4 class="card-title">Reviews</h4>
+                                <h5 class="card-subtitle">Overview of Review</h5>
+                                <h2 class="font-medium mt-5 mb-0">25426</h2>
+                                <span class="text-muted">This month we got 3346 New Reviews</span>
+                                <div class="image-box mt-4 mb-4">
+                                    <a href="#" class="mr-2" data-toggle="tooltip" data-placement="top" title=""
+                                        data-original-title="Simmons"><img src="./images/p1.jpg" class="rounded-circle"
+                                            width="45" alt="user"></a>
+                                    <a href="#" class="mr-2" data-toggle="tooltip" data-placement="top" title=""
+                                        data-original-title="Fitz"><img src="./images/p2.jpg" class="rounded-circle"
+                                            width="45" alt="user"></a>
+                                    <a href="#" class="mr-2" data-toggle="tooltip" data-placement="top" title=""
+                                        data-original-title="Phil"><img src="./images/p3.jpg" class="rounded-circle"
+                                            width="45" alt="user"></a>
+                                    <a href="#" class="mr-2" data-toggle="tooltip" data-placement="top" title=""
+                                        data-original-title="Melinda"><img src="./images/p4.jpg" class="rounded-circle"
+                                            width="45" alt="user"></a>
+                                </div>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-lg btn-info waves-effect waves-light">Checkout All Reviews</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-8 border-left">
+                            <div class="card-body">
+                                <ul class="list-style-none">
+                                    <li class="mt-4">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fa fa-smile-o display-5 text-muted"></i>
+                                            <div class="ml-2">
+                                                <h5 class="mb-0">Positive Reviews</h5>
+                                                <span class="text-muted">25547 Reviews</span>
+                                            </div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 67%"
+                                                aria-valuenow="47" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </li>
+                                    <li class="mt-5">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fa fa-frown-o display-5 text-muted"></i>
+                                            <div class="ml-2">
+                                                <h5 class="mb-0">Negative Reviews</h5>
+                                                <span class="text-muted">547 Reviews</span>
+                                            </div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-orange" role="progressbar" style="width: 20%"
+                                                aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </li>
+                                    <li class="mt-5 mb-5">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fa fa-meh-o display-5 text-muted"></i>
+                                            <div class="ml-2">
+                                                <h5 class="mb-0">Neutral Reviews</h5>
+                                                <span class="text-muted">5547 Reviews</span>
+                                            </div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 33%;"
+                                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  google maps -->
+    <div class="container">
+        <h2 style="color: #8a0301;margin-top: 20px;margin-bottom:10px;text-align:center">Our Restaurants</h2>
+        <main class="row">
+            <div class="d-flex justify-content-center">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59541.78103819969!2d81.74848615135086!3d21.1380146172529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28c42c90611273%3A0x775a98024c74e6ba!2sAaranyam%20Restaurant%20%26%20Cafe!5e0!3m2!1sen!2sin!4v1650002511247!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-dark text-center text-white" style="margin-top: 20px;">
+        <div class="container p-4 pb-0">
+            <section class="mb-4">
+                <a class="btn btn-outline-light btn-floating m-1" href="https://hi-in.facebook.com/" role="button"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/explore" role="button"><i
+                        class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/" role="button"><i
+                        class="fab fa-google"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"><i
+                        class="fab fa-instagram"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button"><i
+                        class="fab fa-github"></i></a>
+            </section>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-white" href="">spoony.com</a>
+        </div>
+    </footer>
+
+    <!-- Button trigger modal -->
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-user prefix grey-text"></i>
+                        <input type="text" id="orangeForm-name" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
+                    </div>
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="email" id="orangeForm-email" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input type="password" id="orangeForm-pass" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-deep-orange">Sign up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
